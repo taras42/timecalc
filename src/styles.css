@@ -7,7 +7,7 @@ body {
 }
 
 .text-color {
-    background-color: #7f8386;
+    color: #7f8386;
 }
 
 .time-input {
@@ -23,4 +23,17 @@ body {
     display: inline-block;
     border-radius: 20em;
     margin-left: 1.9em;
+}
+
+.time-input input {
+    border: none;
+    background-color: transparent;
+    margin-left: auto;
+    text-align: center;
+    margin-right: auto;
+    display: block;
+    width: 5em;
+    font-size: 4em;
+    margin-top: 1.85em;
+    padding: 0.1em;
 }
