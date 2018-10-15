@@ -37,3 +37,39 @@ body {
     margin-top: 1.85em;
     padding: 0.1em;
 }
+
+.time-display {
+    margin-left: auto;
+    margin-right: auto;
+    width: 48em;
+    text-align: center;
+    border-bottom: 0.4em solid #2b4250;
+    margin-top: 7em;
+}
+
+.calculated-time {
+    font-weight: bold;
+    font-size: 4em;
+}
+
+.controls {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40em;
+    padding: 2em;
+}
+
+.controls .control {
+    width: 5em;
+    height: 5em;
+    text-align: center;
+    display: inline-block;
+    border-radius: 5em;
+    margin-left: 5.9em;
+}
+
+.controls .control .sign {
+    font-size: 2em;
+    margin-top: 0.67em;
+    font-weight: bold;
+}
