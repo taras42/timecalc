@@ -1,0 +1,26 @@
+body {
+    background-color: #1f252e;
+}
+
+.primary-color {
+    background-color: #2b4250;
+}
+
+.text-color {
+    background-color: #7f8386;
+}
+
+.time-input {
+    margin-left: auto;
+    margin-right: auto;
+    width: 68em;
+    padding: 2em;
+}
+
+.time-input div {
+    width: 20em;
+    height: 20em;
+    display: inline-block;
+    border-radius: 20em;
+    margin-left: 1.9em;
+}
