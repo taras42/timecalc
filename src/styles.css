@@ -67,6 +67,7 @@ body {
     display: inline-block;
     border-radius: 5em;
     margin-left: 5.9em;
+    cursor: pointer;
 }
 
 .controls .control .sign {
