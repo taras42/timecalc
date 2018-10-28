@@ -1,3 +1,5 @@
+import MEASURES from "./enum/measuresEnum";
+
 let MAX_HOURS = 23,
     ONE_HOUR_IN_SECONDS = 3600,
     ONE_HOUR_IN_MINUTES = 60,
@@ -5,11 +7,6 @@ let MAX_HOURS = 23,
     MAX_TIME = (MAX_HOURS * ONE_HOUR_IN_SECONDS)
         + ((ONE_HOUR_IN_MINUTES - 1) * ONE_MINUTE_IN_SECONDS)
         + (ONE_MINUTE_IN_SECONDS - 1);
-
-let MEASURES = {
-    hours: "hours",
-    minutes: "minutes"
-};
 
 function normalizeValue(value, measure) {
     value = value || 0;
@@ -36,13 +33,13 @@ export default {
                 var minutesLeft,
                     secondsLeft;
 
-                if (timeInSeconds > ONE_HOUR_IN_SECONDS) {
+                if (timeInSeconds >= ONE_HOUR_IN_SECONDS) {
                     hours = Math.floor(timeInSeconds/ONE_HOUR_IN_SECONDS);
                     minutesLeft = timeInSeconds%ONE_HOUR_IN_SECONDS;
                     minutes = Math.floor(minutesLeft/ONE_MINUTE_IN_SECONDS);
                     secondsLeft = minutesLeft%ONE_MINUTE_IN_SECONDS;
                     seconds = secondsLeft;
-                } else if (timeInSeconds > ONE_MINUTE_IN_SECONDS) {
+                } else if (timeInSeconds >= ONE_MINUTE_IN_SECONDS) {
                     minutes = Math.floor(timeInSeconds/ONE_MINUTE_IN_SECONDS);
                     secondsLeft = timeInSeconds%ONE_MINUTE_IN_SECONDS;
                     seconds = secondsLeft;
@@ -62,7 +59,7 @@ export default {
 
                 value = timeInSeconds + value;
 
-                if (value < MAX_TIME) {
+                if (value <= MAX_TIME) {
                     timeInSeconds = value;
                 }
             },
@@ -72,7 +69,7 @@ export default {
 
                 value = timeInSeconds - value;
 
-                if (value > 0) {
+                if (value >= 0) {
                     timeInSeconds = value;
                 }
             },

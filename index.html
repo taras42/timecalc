@@ -2,26 +2,26 @@
 <body>
     <div class="time-input">
         <div class="hours-input primary-color">
-            <input type="text" class="text-color" placeholder="HH"></input>
+            <input type="text" id="hrs-inpt" class="text-color" placeholder="HH"></input>
         </div>
         <div class="minutes-input primary-color">
-            <input type="text" class="text-color" placeholder="MM"></input>
+            <input type="text" id="m-inpt" class="text-color" placeholder="MM"></input>
         </div>
         <div class="seconds-input primary-color">
-            <input type="text" class="text-color" placeholder="SS"></input>
+            <input type="text" id="s-inpt" class="text-color" placeholder="SS"></input>
         </div>
     </div>
     <div class="time-display">
-        <span class="calculated-time text-color">00:00:00</span>
+        <span class="calculated-time text-color" id="time-output">00:00:00</span>
     </div>
     <div class="controls">
-        <div class="control plus primary-color">
+        <div class="control plus primary-color" id="plus-action">
             <div class="sign text-color">+</div>
         </div>
-        <div class="control minus primary-color">
+        <div class="control minus primary-color" id="minus-action">
             <div class="sign text-color">&minus;</div>
         </div>
-        <div class="control reset primary-color">
+        <div class="control reset primary-color" id="reset-action">
             <div class="sign text-color">R</div>
         </div>
     </div>
