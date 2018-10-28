@@ -5,8 +5,6 @@ let hoursInput = document.getElementById("hrs-inpt");
 let minutesInput = document.getElementById("m-inpt");
 let secondsInput = document.getElementById("s-inpt");
 
-secondsInput.focus();
-
 let timeOutput = document.getElementById("time-output");
 
 let plusActionButton = document.getElementById("plus-action");
@@ -77,27 +75,73 @@ function resetAndShowTime() {
     showTime();
 }
 
-document.addEventListener("keydown", function(event) {
+let switchTimeInput = (function() {
+    let currentInputIndex = 2;
+    let inputsArray = [hoursInput, minutesInput, secondsInput];
+
+    return function(direction) {
+        let index = currentInputIndex + direction;
+
+        if (index < 0) {
+            index = inputsArray.length - 1;
+        }
+
+        if (index > inputsArray.length - 1) {
+            index = 0;
+        }
+
+        let input = inputsArray[index];
+
+        input.focus();
+
+        currentInputIndex = index;
+    }
+})();
+
+function onKeyboardInput(event) {
     let key = event.keyCode;
 
+    // plus
     if (key === 107) {
         event.preventDefault();
 
         addAndShowTime();
     }
 
+    // minus
     if (key === 109) {
         event.preventDefault();
 
         subtractAndShowTime();
     }
 
+    // esc
     if (key === 27) {
         resetAndShowTime();
     }
-});
 
-plusActionButton.addEventListener("click", addAndShowTime);
-minusActionButton.addEventListener("click", subtractAndShowTime);
+    // left
+    if (key === 37) {
+        switchTimeInput(-1);
+    }
 
-resetActionButton.addEventListener("click", resetAndShowTime);
+    // right
+    if (key === 39) {
+        switchTimeInput(1);
+    }
+}
+
+function initEvents() {
+    document.addEventListener("keydown", onKeyboardInput);
+    plusActionButton.addEventListener("click", addAndShowTime);
+    minusActionButton.addEventListener("click", subtractAndShowTime);
+    resetActionButton.addEventListener("click", resetAndShowTime);
+}
+
+export default {
+    start: function() {
+        initEvents();
+
+        secondsInput.focus();
+    }
+}

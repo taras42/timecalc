@@ -1,2 +1,4 @@
 import styles from "./styles.css";
-import "./time-calc-controller";
+import timeCalcApp from "./time-calc-app";
+
+timeCalcApp.start();
