@@ -5,6 +5,8 @@ let hoursInput = document.getElementById("hrs-inpt");
 let minutesInput = document.getElementById("m-inpt");
 let secondsInput = document.getElementById("s-inpt");
 
+secondsInput.focus();
+
 let timeOutput = document.getElementById("time-output");
 
 let plusActionButton = document.getElementById("plus-action");
@@ -49,7 +51,7 @@ function readValuesFromInputs() {
     }
 }
 
-plusActionButton.addEventListener("click", function() {
+function addAndShowTime() {
     let values = readValuesFromInputs();
 
     timeCalc.add(values.hours, MEASURES.hours);
@@ -57,9 +59,9 @@ plusActionButton.addEventListener("click", function() {
     timeCalc.add(values.seconds);
 
     showTime();
-});
+}
 
-minusActionButton.addEventListener("click", function() {
+function subtractAndShowTime() {
     let values = readValuesFromInputs();
 
     timeCalc.subtract(values.hours, MEASURES.hours);
@@ -67,7 +69,24 @@ minusActionButton.addEventListener("click", function() {
     timeCalc.subtract(values.seconds);
 
     showTime();
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.keyCode === 107) {
+        event.preventDefault();
+
+        addAndShowTime();
+    }
+
+    if (event.keyCode === 109) {
+        event.preventDefault();
+
+        subtractAndShowTime();
+    }
 });
+
+plusActionButton.addEventListener("click", addAndShowTime);
+minusActionButton.addEventListener("click", subtractAndShowTime);
 
 resetActionButton.addEventListener("click", function() {
     timeCalc.reset();
