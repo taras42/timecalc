@@ -71,25 +71,33 @@ function subtractAndShowTime() {
     showTime();
 }
 
+function resetAndShowTime() {
+    timeCalc.reset();
+
+    showTime();
+}
+
 document.addEventListener("keydown", function(event) {
-    if (event.keyCode === 107) {
+    let key = event.keyCode;
+
+    if (key === 107) {
         event.preventDefault();
 
         addAndShowTime();
     }
 
-    if (event.keyCode === 109) {
+    if (key === 109) {
         event.preventDefault();
 
         subtractAndShowTime();
+    }
+
+    if (key === 27) {
+        resetAndShowTime();
     }
 });
 
 plusActionButton.addEventListener("click", addAndShowTime);
 minusActionButton.addEventListener("click", subtractAndShowTime);
 
-resetActionButton.addEventListener("click", function() {
-    timeCalc.reset();
-
-    showTime();
-});
+resetActionButton.addEventListener("click", resetAndShowTime);
