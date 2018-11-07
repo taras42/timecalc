@@ -8,4 +8,4 @@ A simple time calculator
 
 ## link
 
-[TimeCalculator](https://taras42.github.io/timecalc/dist/index.html "TimeCalculator")
+[TimeCalculator](https://taras42.github.io/timecalc "TimeCalculator")
